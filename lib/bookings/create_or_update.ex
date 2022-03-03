@@ -10,7 +10,6 @@ defmodule Flightex.Bookings.CreateOrUpdate do
       }) do
     complete_date
     |> Booking.build(local_origin, local_destination, user_id)
-    |> IO.inspect()
     |> save_booking()
   end
 
