@@ -5,13 +5,12 @@ defmodule Flightex.Bookings.Booking do
 
   def build(complete_date, local_origin, local_destination, user_id) do
     {:ok,
-      %__MODULE__{
-        complete_date: complete_date,
-        local_origin: local_origin,
-        local_destination: local_destination,
-        user_id: user_id,
-        id: UUID.uuid4()
-      }
-    }
+     %__MODULE__{
+       complete_date: complete_date,
+       local_origin: local_origin,
+       local_destination: local_destination,
+       user_id: user_id,
+       id: UUID.uuid4()
+     }}
   end
 end
