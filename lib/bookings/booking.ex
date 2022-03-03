@@ -3,7 +3,7 @@ defmodule Flightex.Bookings.Booking do
   @enforce_keys @keys
   defstruct @keys
 
-  def build(complete_date, local_origin, local_destination, user_id) do
+  def build(complete_date, local_origin, local_destination, user_id) when is_binary(user_id) do
     {:ok,
      %__MODULE__{
        complete_date: complete_date,
@@ -13,4 +13,7 @@ defmodule Flightex.Bookings.Booking do
        id: UUID.uuid4()
      }}
   end
+
+  def build(_complete_date, _local_origin, _locla_destination, _user_id),
+    do: {:error, "User id must be a valid UUID"}
 end
